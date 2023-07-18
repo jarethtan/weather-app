@@ -1,22 +1,15 @@
-const { displayWeather, displayCovid } = require("./display");
-const { weatherApiKey } = require("./config");
+import { NextApiRequest, NextApiResponse } from "next";
+import { getWeather } from "@/lib/getWeather";
 
-module.exports.fetchWeather = (capital) => {
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-      capital +
-      "&units=metric&appid=" +
-      weatherApiKey
-  )
-    .then((res) => {
-      if (res.ok) {
-        console.log("Successfully retrieve weather API info");
-        return res.json();
-      } else {
-        console.log("Unscuccessful connection with weather API");
-        return Promise.reject(res);
-      }
-    })
-    .then((data) => displayWeather(data))
-    .catch((err) => console.log("Error: ", err));
-};
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method === "GET") {
+    console.log("WHATTTTTTTTTTTTTTTTTT", req);
+    const weatherData = await getWeather(req.body);
+    return weatherData;
+  } else {
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
+  }
+}

@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout/Layout";
+import { ChangeEvent, useState } from "react";
+import Form from "@/components/form/Form";
 
 export default function Home() {
   return (
@@ -12,7 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Layout></Layout>
+        <Layout>
+          <Form />
+        </Layout>
       </main>
     </>
   );
