@@ -15,10 +15,14 @@ const History = ({ country, countryIcon, time }: propType) => {
   if (time !== undefined || country !== undefined) {
     localStorage.setItem(time, JSON.stringify({ country, countryIcon, time }))
   }
-  const items = { ...localStorage }
-  const entries = Object.values(items)
-  console.log("WHATTTTTTT", entries)
-  return <div className={style.container}>{}</div>
+  const allKeys = Object.keys(localStorage)
+  return (
+    <div className={style.container}>
+      {allKeys.map((key) => {
+        return <div key={key}>{localStorage.getItem(key)}</div>
+      })}
+    </div>
+  )
 }
 
 export default History
