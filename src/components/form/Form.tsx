@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import style from "./Form.module.css"
 import { useForm, SubmitHandler } from "react-hook-form"
-
 export type WeatherFormFields = {
   country: string
   city: string
@@ -42,18 +41,7 @@ const Form = ({ handleWeatherData }: propType) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label id="country">Country: </label>
-      <input
-        id="country"
-        {...register("country", {
-          minLength: 3,
-          maxLength: 50,
-          pattern: /^[A-Za-z]+$/i,
-        })}
-      />
-      {errors.country && <span>This field is required</span>}
-      <label id="city">City: </label>
+    <form onSubmit={handleSubmit(onSubmit)} className={style.container}>
       <input
         id="city"
         {...register("city", {
@@ -61,9 +49,13 @@ const Form = ({ handleWeatherData }: propType) => {
           maxLength: 50,
           pattern: /^[A-Za-z]+$/i,
         })}
+        placeholder="City"
+        className={style.cityInput}
       />
-      {errors.city && <span>This field is required</span>}
-      <button type="submit">Submit</button>
+      <button type="submit" className={style.subButton}>
+        <span className="material-symbols-outlined">search</span>
+      </button>
+      {errors.city && <span>Length must be more than 3 and less than 50</span>}
       {error.length !== 0 ? <span>{error}</span> : ""}
     </form>
   )

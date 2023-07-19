@@ -1,5 +1,7 @@
 .background {
   background-image: url("../../../public/backgroundImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;

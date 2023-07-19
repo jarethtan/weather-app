@@ -4,7 +4,7 @@
   grid-template-rows: 10% 60% 15% 15%;
   width: 6rem;
   font-weight: bold;
-  color: rgb(118, 0, 118);
+  color: rgba(110, 63, 181, 255);
   align-self: flex-end;
 }
 

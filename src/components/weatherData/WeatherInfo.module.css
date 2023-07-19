@@ -1,6 +1,6 @@
 .container {
   width: 30rem;
-  margin: auto;
+  margin: 6rem auto 0 auto;
   position: relative;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.3);
@@ -31,5 +31,5 @@
 .image {
   position: absolute;
   top: -4rem;
-  right: 0rem;
+  right: -7%;
 }

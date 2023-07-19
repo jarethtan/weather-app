@@ -13,10 +13,10 @@ const WeatherInfo = ({ weatherData }: propType) => {
   const date = new Date(
     new Date().toLocaleString("en", { timeZone: "Singapore" })
   )
+  const time = date.toLocaleDateString() + " " + date.toLocaleTimeString()
   const temp = (temp: number) => {
     return Math.floor(temp - 273)
   }
-  const time = date.toLocaleDateString() + " " + date.toLocaleTimeString()
   return (
     <div className={style.container}>
       <div className={style.image}>
@@ -44,7 +44,11 @@ const WeatherInfo = ({ weatherData }: propType) => {
         />
       </div>
       <div className={style.historyContainer}>
-        <History />
+        <History
+          country={weatherData.name}
+          countryIcon={weatherData.sys.country}
+          time={time}
+        />
       </div>
     </div>
   )

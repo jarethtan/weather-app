@@ -1,9 +1,7 @@
 const weatherApiKey = process.env.WEATHER_API_KEY
-export const getWeather = async (country?: string, city?: string) => {
+export const getWeather = async (city?: string) => {
   const cityResult = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${
-      city !== null ? city : country
-    }&limit=1&appid=${weatherApiKey}`
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${weatherApiKey}`
   )
   const cityResponse = await cityResult.json()
   if (cityResponse.length === 0) {

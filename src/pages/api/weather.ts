@@ -6,12 +6,11 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
-    const country = req.query.country as string
     const city = req.query.city as string
-    if (country.length === 0 && city.length === 0) {
+    if (city.length === 0) {
       return res.json("both field cannot be empty")
     }
-    const weatherData = await getWeather(country, city)
+    const weatherData = await getWeather(city)
 
     if (typeof weatherData !== "object" && weatherData !== null) {
       return res.json(weatherData)

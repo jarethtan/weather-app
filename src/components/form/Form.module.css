@@ -1,0 +1,40 @@
+.container {
+  margin: 2rem auto 0 auto;
+  width: 30rem;
+}
+
+.cityInput {
+  width: 90%;
+  height: 3rem;
+  border-radius: 0.6rem;
+  background-color: rgb(255, 255, 255, 0.5);
+  padding: 0 0.5rem;
+  border: none;
+  color: black;
+}
+
+.cityInput::-webkit-input-placeholder {
+  transform: translateY(-100%) translateX(0.2rem);
+}
+
+.cityInput:focus {
+  outline: none;
+  cursor: default;
+  color: black;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+.subButton {
+  position: absolute;
+  border-radius: 0.6rem;
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  background-color: rgba(110, 63, 181, 255);
+  margin-left: 0.5rem;
+}
+
+.subButton:hover {
+  background-color: rgb(90, 67, 222);
+  cursor: pointer;
+}

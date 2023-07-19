@@ -1,9 +1,8 @@
 import Head from "next/head"
 import Layout from "@/components/layout/Layout"
-import { Fragment, useState } from "react"
+import { useState } from "react"
 import Form from "@/components/form/Form"
 import WeatherInfo from "@/components/weatherData/WeatherInfo"
-import History from "@/components/weatherData/History"
 
 export default function Home() {
   const [weatherData, setWeatherData] = useState<
@@ -19,14 +18,16 @@ export default function Home() {
         <meta name="description" content="Weather App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=optional"
+        />
       </Head>
       <main>
         <Layout>
           <Form handleWeatherData={handleWeatherData} />
           {weatherData !== undefined ? (
-            <Fragment>
-              <WeatherInfo weatherData={weatherData} />
-            </Fragment>
+            <WeatherInfo weatherData={weatherData} />
           ) : (
             ""
           )}
