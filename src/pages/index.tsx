@@ -1,10 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
-import Layout from "@/components/layout/Layout";
-import { ChangeEvent, useState } from "react";
-import Form from "@/components/form/Form";
+import Head from "next/head"
+import Layout from "@/components/layout/Layout"
+import { useState } from "react"
+import Form from "@/components/form/Form"
+import WeatherInfo from "@/components/weatherData/WeatherInfo"
 
 export default function Home() {
+  const [weatherData, setWeatherData] = useState<
+    Record<string, any> | undefined
+  >(undefined)
+  const handleWeatherData = (data: Record<string, any>) => {
+    setWeatherData(data)
+  }
   return (
     <>
       <Head>
@@ -15,9 +21,14 @@ export default function Home() {
       </Head>
       <main>
         <Layout>
-          <Form />
+          <Form handleWeatherData={handleWeatherData} />
+          {weatherData !== undefined ? (
+            <WeatherInfo weatherData={weatherData} />
+          ) : (
+            ""
+          )}
         </Layout>
       </main>
     </>
-  );
+  )
 }

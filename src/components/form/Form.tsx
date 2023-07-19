@@ -1,30 +1,45 @@
-import React from "react";
-import style from "./Form.module.css";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { getWeather } from "@/lib/getWeather";
+import React, { useState } from "react"
+import style from "./Form.module.css"
+import { useForm, SubmitHandler } from "react-hook-form"
 
 export type WeatherFormFields = {
-  country: string;
-  city: string;
-};
+  country: string
+  city: string
+}
 
-const Form = () => {
+interface propType {
+  handleWeatherData: (data: Record<string, any>) => void
+}
+
+const Form = ({ handleWeatherData }: propType) => {
+  const [error, setError] = useState("")
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<WeatherFormFields>();
+  } = useForm<WeatherFormFields>()
 
-  const onSubmit: SubmitHandler<WeatherFormFields> = async (data) => {
-    console.log(data);
-    const weatherData = await fetch("/api/weather", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    // console.log("WHATTTTTTTT", weatherData);
-  };
+  const onSubmit: SubmitHandler<WeatherFormFields> = async (e) => {
+    setError("")
+    const data = await fetch(
+      `/api/weather/?city=${e.city}&country=${e.country}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    if (data.ok) {
+      const fetchedData = await data.json()
+      if (typeof fetchedData === "object" && fetchedData !== null) {
+        handleWeatherData(fetchedData)
+        return
+      }
+      setError(fetchedData)
+      return
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -32,7 +47,7 @@ const Form = () => {
       <input
         id="country"
         {...register("country", {
-          minLength: 4,
+          minLength: 3,
           maxLength: 50,
           pattern: /^[A-Za-z]+$/i,
         })}
@@ -42,15 +57,16 @@ const Form = () => {
       <input
         id="city"
         {...register("city", {
-          minLength: 4,
+          minLength: 3,
           maxLength: 50,
           pattern: /^[A-Za-z]+$/i,
         })}
       />
       {errors.city && <span>This field is required</span>}
       <button type="submit">Submit</button>
+      {error.length !== 0 ? <span>{error}</span> : ""}
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form
