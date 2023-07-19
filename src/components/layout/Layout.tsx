@@ -1,7 +1,8 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react"
+import style from "./Layout.module.css"
 
 const Layout = ({ children }: PropsWithChildren) => {
-  return <div>{children}</div>;
-};
+  return <div className={style.background}>{children}</div>
+}
 
-export default Layout;
+export default Layout

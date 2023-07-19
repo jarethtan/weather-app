@@ -1,0 +1,35 @@
+.container {
+  width: 30rem;
+  margin: auto;
+  position: relative;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 35% 65%;
+}
+
+.tempContainer {
+  grid: 1;
+  grid-row: 1;
+  display: flex;
+}
+
+.desContainer {
+  grid: 2;
+  grid-row: 1;
+  display: flex;
+}
+
+.historyContainer {
+  grid: 1/3;
+  grid-row: 2;
+}
+
+.image {
+  position: absolute;
+  top: -4rem;
+  right: 0rem;
+}

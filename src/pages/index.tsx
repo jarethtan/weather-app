@@ -1,8 +1,9 @@
 import Head from "next/head"
 import Layout from "@/components/layout/Layout"
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import Form from "@/components/form/Form"
 import WeatherInfo from "@/components/weatherData/WeatherInfo"
+import History from "@/components/weatherData/History"
 
 export default function Home() {
   const [weatherData, setWeatherData] = useState<
@@ -23,7 +24,9 @@ export default function Home() {
         <Layout>
           <Form handleWeatherData={handleWeatherData} />
           {weatherData !== undefined ? (
-            <WeatherInfo weatherData={weatherData} />
+            <Fragment>
+              <WeatherInfo weatherData={weatherData} />
+            </Fragment>
           ) : (
             ""
           )}

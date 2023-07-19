@@ -1,0 +1,8 @@
+.background {
+  background-image: url("../../../public/backgroundImage.jpg");
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
