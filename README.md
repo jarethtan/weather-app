@@ -2,7 +2,7 @@
 
 > This is the weather app to display the weather information of the city input by the user.
 
-> Check out the live demo if the webapp [_here_](https://weather-app-r215.vercel.app/).
+> Check out the live demo of the webapp [_here_](https://weather-app-r215.vercel.app/).
 
 ## Table of Contents
 
