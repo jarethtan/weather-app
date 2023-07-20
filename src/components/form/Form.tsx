@@ -20,15 +20,12 @@ const Form = ({ handleWeatherData }: propType) => {
 
   const onSubmit: SubmitHandler<WeatherFormFields> = async (e) => {
     setError("")
-    const data = await fetch(
-      `/api/weather/?city=${e.city}&country=${e.country}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    const data = await fetch(`/api/weather/?city=${e.city}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
     if (data.ok) {
       const fetchedData = await data.json()
       if (typeof fetchedData === "object" && fetchedData !== null) {
@@ -45,8 +42,7 @@ const Form = ({ handleWeatherData }: propType) => {
       <input
         id="city"
         {...register("city", {
-          minLength: 3,
-          maxLength: 50,
+          maxLength: 30,
           pattern: /^[A-Za-z]+$/i,
         })}
         placeholder="City"
@@ -55,8 +51,13 @@ const Form = ({ handleWeatherData }: propType) => {
       <button type="submit" className={style.subButton}>
         <span className="material-symbols-outlined">search</span>
       </button>
-      {errors.city && <span>Length must be more than 3 and less than 50</span>}
-      {error.length !== 0 ? <span>{error}</span> : ""}
+      <br />
+      {errors.city && (
+        <span className={style.errors}>
+          Input must be less than 30 characters.
+        </span>
+      )}
+      {error.length !== 0 ? <span className={style.errors}>{error}</span> : ""}
     </form>
   )
 }

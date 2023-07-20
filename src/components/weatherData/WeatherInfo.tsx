@@ -1,14 +1,15 @@
-import React, { Fragment, PropsWithChildren } from "react"
+import React from "react"
 import style from "./WeatherInfo.module.css"
-import History from "./History"
-import Temperature from "./Temperature"
-import Description from "./Description"
+import History from "./history/History"
+import Temperature from "./temperature/Temperature"
+import Description from "./description/Description"
 
 interface propType {
   weatherData: Record<string, any>
+  handleReclickOne: (data: Record<string, any>) => void
 }
 
-const WeatherInfo = ({ weatherData }: propType) => {
+const WeatherInfo = ({ weatherData, handleReclickOne }: propType) => {
   console.log(weatherData)
   const date = new Date(
     new Date().toLocaleString("en", { timeZone: "Singapore" })
@@ -16,6 +17,9 @@ const WeatherInfo = ({ weatherData }: propType) => {
   const time = date.toLocaleDateString() + " " + date.toLocaleTimeString()
   const temp = (temp: number) => {
     return Math.floor(temp - 273)
+  }
+  const handleReclickTwo = (data: Record<string, any>) => {
+    handleReclickOne(data)
   }
   return (
     <div className={style.container}>
@@ -32,7 +36,7 @@ const WeatherInfo = ({ weatherData }: propType) => {
           minTemp={temp(weatherData.main.temp_min)}
           maxTemp={temp(weatherData.main.temp_max)}
           currTemp={temp(weatherData.main.temp)}
-          country={weatherData.name}
+          city={weatherData.name}
           countryIcon={weatherData.sys.country}
         />
       </div>
@@ -45,9 +49,10 @@ const WeatherInfo = ({ weatherData }: propType) => {
       </div>
       <div className={style.historyContainer}>
         <History
-          country={weatherData.name}
+          city={weatherData.name}
           countryIcon={weatherData.sys.country}
           time={time}
+          handleReclickTwo={handleReclickTwo}
         />
       </div>
     </div>

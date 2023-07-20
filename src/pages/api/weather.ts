@@ -8,7 +8,7 @@ export default async function handler(
   if (req.method === "GET") {
     const city = req.query.city as string
     if (city.length === 0) {
-      return res.json("both field cannot be empty")
+      return res.json("Submited field cannot be empty")
     }
     const weatherData = await getWeather(city)
 

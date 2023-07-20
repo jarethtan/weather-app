@@ -7,7 +7,7 @@
   width: 90%;
   height: 3rem;
   border-radius: 0.6rem;
-  background-color: rgb(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   padding: 0 0.5rem;
   border: none;
   color: black;
@@ -32,9 +32,14 @@
   width: 3rem;
   background-color: rgba(110, 63, 181, 255);
   margin-left: 0.5rem;
+  z-index: 10;
 }
 
 .subButton:hover {
   background-color: rgb(90, 67, 222);
   cursor: pointer;
+}
+
+.errors {
+  color: red;
 }

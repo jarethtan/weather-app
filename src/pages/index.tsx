@@ -11,6 +11,9 @@ export default function Home() {
   const handleWeatherData = (data: Record<string, any>) => {
     setWeatherData(data)
   }
+  const handleReclickOne = (data: Record<string, any>) => {
+    setWeatherData(data)
+  }
   return (
     <>
       <Head>
@@ -27,7 +30,10 @@ export default function Home() {
         <Layout>
           <Form handleWeatherData={handleWeatherData} />
           {weatherData !== undefined ? (
-            <WeatherInfo weatherData={weatherData} />
+            <WeatherInfo
+              weatherData={weatherData}
+              handleReclickOne={handleReclickOne}
+            />
           ) : (
             ""
           )}

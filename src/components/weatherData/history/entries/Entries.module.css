@@ -1,0 +1,54 @@
+.list {
+  display: grid;
+  width: 100%;
+  background-color: rgb(231, 218, 247);
+  grid-template-columns: 5rem 1fr 2rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.city {
+  grid-column: 1;
+  align-self: center;
+}
+
+.time {
+  grid-column: 2;
+  align-self: center;
+  justify-self: end;
+}
+
+.subButton {
+  grid-column: 3;
+  background-color: white;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 2rem;
+  margin-left: 0.2rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.subButton:hover {
+  background-color: rgb(201, 201, 201);
+  transition: all 0.2s ease-in-out;
+}
+
+.delButton {
+  grid-column: 4;
+  background-color: white;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 2rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.delButton:hover {
+  background-color: rgb(201, 201, 201);
+  transition: all 0.2s ease-in-out;
+}
