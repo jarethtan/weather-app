@@ -7,7 +7,7 @@ export type WeatherFormFields = {
 }
 
 interface propType {
-  handleWeatherData: (data: Record<string, any>) => void
+  handleWeatherData: (data: Record<string, any>) => void // callback function to bring weather data up to parent.
 }
 
 const Form = ({ handleWeatherData }: propType) => {
@@ -18,6 +18,7 @@ const Form = ({ handleWeatherData }: propType) => {
     formState: { errors },
   } = useForm<WeatherFormFields>()
 
+  // used Reach hook form to generate a form to submit to API
   const onSubmit: SubmitHandler<WeatherFormFields> = async (e) => {
     setError("")
     const data = await fetch(`/api/weather/?city=${e.city}`, {

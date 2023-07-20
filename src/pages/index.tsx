@@ -8,9 +8,11 @@ export default function Home() {
   const [weatherData, setWeatherData] = useState<
     Record<string, any> | undefined
   >(undefined)
+  // callback function from Form component
   const handleWeatherData = (data: Record<string, any>) => {
     setWeatherData(data)
   }
+  // callback function to bring weather data from weather component to index page
   const handleReclickOne = (data: Record<string, any>) => {
     setWeatherData(data)
   }
@@ -20,11 +22,7 @@ export default function Home() {
         <title>Weather App</title>
         <meta name="description" content="Weather App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=optional"
-        />
+        <link rel="icon" href="/weather.ico" />
       </Head>
       <main>
         <Layout>

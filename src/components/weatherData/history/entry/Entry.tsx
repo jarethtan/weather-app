@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./Entries.module.css"
+import style from "./Entry.module.css"
 
 interface propType {
   entry: Record<string, string>
@@ -14,6 +14,8 @@ const Entries = ({
   handleDeleteLocalEntry,
   dataKey,
 }: propType) => {
+  // access api to get weather data with search button in the search entry.
+  // Once data is retrieved, drill props up to index page to diseminate data different component
   const handleResubmit = async (city: string) => {
     const data = await fetch(`/api/weather/?city=${city}`, {
       method: "GET",
@@ -30,6 +32,7 @@ const Entries = ({
       throw new Error("Cannot resubmit. Something went wrong")
     }
   }
+
   return (
     <ul className={style.list} key={dataKey}>
       <span className={style.city}>

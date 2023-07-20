@@ -10,14 +10,18 @@ interface propType {
 }
 
 const WeatherInfo = ({ weatherData, handleReclickOne }: propType) => {
-  console.log(weatherData)
+  // get latest time stamp of request
   const date = new Date(
     new Date().toLocaleString("en", { timeZone: "Singapore" })
   )
   const time = date.toLocaleDateString() + " " + date.toLocaleTimeString()
+
+  // temp function to convert kelvin to celcius
   const temp = (temp: number) => {
     return Math.floor(temp - 273)
   }
+
+  // callback function to bring weather data from history component to weather component
   const handleReclickTwo = (data: Record<string, any>) => {
     handleReclickOne(data)
   }
