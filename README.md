@@ -28,6 +28,7 @@ There were some asumptions made for this exercise.
 1. Task shows City and Country input fields. However in the mock, only country field was present. Looking at openweather API documents, only one input variable is need for the API call and the city input field seems to be more accurate. Because of that, I have decide to go with city input field.
 2. As there was no explicit instructions in styling preferences, I decided to go with CSS modules. (See room for improvement for better suggestion)
 3. As there was no explicit instructions in storage preference, local storage was used for this exercise.
+4. fetch API was used in the project to retrieve information from the API. (See room for improvement for reason behind this)
 
 ## Features
 
@@ -53,7 +54,7 @@ Due to time constraints, there are a few feature I would have liked to implement
 - Would have explored using tRPC to ensure type safety when consuming API endpoints from openweathermap. Would have greatly ease development experience.
 - Improvement design best practices. I do not have much exposure in this and would have loved to read up more about it to apply on this project.
 - The Geolocation for the API calls are not very accurate. In some cities, it could not geolocate accurately. I suspect this is due tobecause some city having multiple search results or the way I sort the API response is not optimal.
-- Would have like to explore switching between dark/light themes. Did not have the time to explore that which was a shame.
+- I understand AJAX was requested to be used to get weather information from the API. However I have not used it before and looking through the documentations, my intuition tells me I may take more time to get up to speed and risk not completing the assignment. So I made the decision to use fetchAPI instead to be able to complete the assignment.
 
 ## Contact
 
