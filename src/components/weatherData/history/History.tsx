@@ -14,16 +14,17 @@ const History = ({ city, countryIcon, time, handleReclickTwo }: propType) => {
 
   // useEffect to re-render component when delete or set entries in local storage
   useEffect(() => {
+    if (deleteEntry !== null) {
+      localStorage.removeItem(deleteEntry)
+      setDeleteEntry(null)
+      return
+    }
     if (time !== undefined || city !== undefined) {
       const timeInt = new Date(time).getTime()
       localStorage.setItem(
         timeInt.toString(),
         JSON.stringify({ city, countryIcon, time })
       )
-    }
-    if (deleteEntry !== null) {
-      localStorage.removeItem(deleteEntry)
-      setDeleteEntry(null)
     }
   }, [city, countryIcon, time, deleteEntry])
 
