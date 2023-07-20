@@ -1,38 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather App
 
-## Getting Started
+> This is the weather app to display the weather information of the city input by the user.
 
-First, run the development server:
+> Check out the live demo if the webapp [_here_](https://weather-app-r215.vercel.app/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Tech Stack](#tech-stack)
+- [Assumptions](#assumption)
+- [Features](#features)
+- [Setup](#setup)
+- [Room for Improvement](#room-for-improvement)
+- [Contact](#contact)
+<!-- * [License](#license) -->
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The tech stack used are 
+1. ReactJS for the front framework
+2. CSS modules for styling
+3. Local Storage for some simple storage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Assumption
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+There were some asumptions made for this exercise.
 
-## Learn More
+1. Task shows City and Country input fields. However in the mock, only country field was present. Looking at openweather API documents, only one input variable is need for the API call and the city input field seems to be more accurate. Because of that, I have decide to go with city input field.
+2. As there was no explicit instructions in styling preferences, I decided to go with CSS modules. (See room for improvement for better suggestion)
+3. As there was no explicit instructions in storage preference, local storage was used for this exercise.
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+List of features here:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Retrieve weather information from OpenWeatherMap API
+- Display weather information in frontend
+- Able to delete entries of search history
+- Able to do a quick search base on specific search history entries
+- Webapp is responsive to different screen sizes
 
-## Deploy on Vercel
+## Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Project dependencies are list in package.json file. To see and review the code, npm install, npm run dev and run webapp in localhost:3000.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Room for Improvement
+
+Due to time constraints, there are a few feature I would have liked to implement but could not.
+
+- Use Redux for global state management. Could be used to handle information flow into local storagen such as saving/deleting/retriving information from local storage. Could use that to prevent prop drilling. There was one isntance when I had to drill my props 3 levels up which was tendious.
+- Using Tailwind CSS to improve styling efficiency. I do not have much experience in tailwind and would have love to use this opportunity to practice on it if not for the time constraint. CSS module is very basic but it keep my styling organised towards each component.
+- Better understand the core concept of typescript to improve proficiency in the app. Application of typescript was intermediate at best. Would have preferred to implement more typeguards and build interface to typecheck different variables for better developer experience.
+- Would have explored using tRPC to ensure type safety when consuming API endpoints from openweathermap. Would have greatly ease development experience.
+- Improvement design best practices. I do not have much exposure in this and would have loved to read up more about it to apply on this project.
+- The Geolocation for the API calls are not very accurate. In some cities, it could not geolocate accurately. I suspect this is due tobecause some city having multiple search results or the way I sort the API response is not optimal.
+- Would have like to explore switching between dark/light themes. Did not have the time to explore that which was a shame.
+
+## Contact
+
+Created by [@jarethtan]( https://github.com/jarethtan - feel free to contact me via my email as well (Jareth.tan@outlook.com)
