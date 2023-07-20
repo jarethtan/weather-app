@@ -50,6 +50,7 @@ const History = ({ city, countryIcon, time, handleReclickTwo }: propType) => {
         const parseEntry = JSON.parse(entry)
         return (
           <Entries
+            key={key.toString()}
             dataKey={key.toString()}
             entry={parseEntry}
             handleReclickThree={handleReclickThree}
