@@ -1,6 +1,6 @@
 .container {
   margin: 2rem auto 0 auto;
-  width: 30rem;
+  width: 36rem;
 }
 
 .cityInput {
@@ -42,4 +42,10 @@
 
 .errors {
   color: red;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 75%;
+  }
 }
