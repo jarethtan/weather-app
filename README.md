@@ -28,7 +28,7 @@ There were some asumptions made for this exercise.
 1. Task shows City and Country input fields. However in the mock, only country field was present. Looking at openweather API documents, only one input variable is need for the API call and the city input field seems to be more accurate. Because of that, I have decide to go with city input field.
 2. As there was no explicit instructions in styling preferences, I decided to go with CSS modules. (See room for improvement for better suggestion)
 3. As there was no explicit instructions in storage preference, local storage was used for this exercise.
-4. fetch API was used in the project to retrieve information from the API. (See room for improvement for reason behind this)
+4. Fetch API was used together with NextJS API routing folder in this project to retrieve information from the API. (See room for improvement for reason behind this)
 5. Only the nine latest search entries will be shown in the application as it was not explicitly mentioned how many should be shown.
 
 ## Features
