@@ -25,7 +25,6 @@
 }
 
 .subButton {
-  display: inline-block;
   position: absolute;
   border-radius: 0.6rem;
   border: none;
