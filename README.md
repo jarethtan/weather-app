@@ -16,7 +16,7 @@
 
 ## Tech Stack
 
-The tech stack used are 
+The tech stack used was
 1. ReactJS for the front framework
 2. CSS modules for styling
 3. Local Storage for some simple storage
