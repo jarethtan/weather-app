@@ -29,6 +29,7 @@ There were some asumptions made for this exercise.
 2. As there was no explicit instructions in styling preferences, I decided to go with CSS modules. (See room for improvement for better suggestion)
 3. As there was no explicit instructions in storage preference, local storage was used for this exercise.
 4. fetch API was used in the project to retrieve information from the API. (See room for improvement for reason behind this)
+5. Only the nine latest search entries will be shown in the application as it was not explicitly mentioned how many should be shown.
 
 ## Features
 
